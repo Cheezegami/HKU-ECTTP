@@ -1,6 +1,7 @@
 # Made by Ronald van Egdom.
 # For HKU Creative Programming with Python.
-# Lab 4.
+# Lab 8.
+# Known Bugs: Objects can get stuck when colliding : Fix this by moving the movable rectangle over them, that will make them go unstuck.
 
 # Importing the GenericObject class.
 from GenericObject import GenericObject
@@ -15,10 +16,11 @@ def setup(): # Defining parameters that run once.
     size(1400,800) # Screen size. (Width,Height)
     # Object Creation.
     #Speed, Shape, Movestyle, Red, Green, Blue, Border.
-    objectList.append(GenericObject(50,50,int_border+random(width-int_border),+random(height-int_border),5,"rectangle",0,60,127,255,int_border)) # First Object, bouncing rectangle.
+    objectList.append(GenericObject(25+random(50),25+random(50),int_border+random(width-int_border),+random(height-int_border),2+random(5),"rectangle",0,60,127,255,int_border)) # First Object, bouncing rectangle.
     for i in range (0,10):
-        objectList.append(GenericObject(50,50,int_border+random(width-int_border),int_border+random(height-int_border),4,"ellipse",0,255,127,60,int_border)) # Second Object, bouncing ellipse.
-    #objectList.append(GenericObject(150,100,int_border+random(width-int_border),int_border+random(height-int_border),10,"rectangle",1,127,60,255,int_border)) # Third, Movable Object
+        int_size = 25+ random(50)
+        objectList.append(GenericObject(int_size,int_size,int_border+random(width-int_border),int_border+random(height-int_border),2+random(5),"ellipse",0,255,127,60,int_border)) # Second Object, bouncing ellipse.
+    objectList.append(GenericObject(150,100,int_border+random(width-int_border),int_border+random(height-int_border),2+10,"rectangle",1,127,60,255,int_border)) # Third, Movable Object
     #objectList.append(GenericObject(100,100,int_border+random(width-int_border),int_border+random(height-int_border),10,"ellipse",2,127,60,255,int_border)) # Fourth, Time Based Object.
     
     background(int_bgColor) # Set up background.
